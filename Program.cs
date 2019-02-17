@@ -7,15 +7,42 @@ namespace Test
 {
     class Program
     {
-        static string[] x = { "is", "valid", "right" };
-        static string valid = "IsValid"; 
-
+        static string[] x = { "is", "valid", "right","sdeda","sssss","1"};
+        
         static void Main(string[] args)
-        {                                
-            Console.WriteLine(isValid(x,valid));
+        {
+            string[] str = AllLongestString(x);
+
+            foreach (string w in str)
+            {
+                Console.Write(w + " ");
+            }
             Console.ReadLine();
         }
 
+        private static string[] AllLongestString(string[] inputArray)
+        {
+            ArrayList str = new ArrayList();
+            int lenght = 0;
+
+            foreach (string word in inputArray)
+            {
+                if (word.Length > lenght)
+                {
+                    lenght = word.Length;
+                }
+            }
+
+            foreach (string word in inputArray)
+            {
+                if(word.Length == lenght)
+                {
+                    str.Add(word);
+                }
+            }
+
+            return str.ToArray(typeof(string)) as string[];
+        }
 
         private static bool isValid(string[] words, string validation)
         {           
